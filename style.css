@@ -1,0 +1,790 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    height:100vh;
+    overflow:hidden;
+
+    font-family:"Fredoka",sans-serif;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        120deg,
+        #ffd6ef,
+        #f0d4ff,
+        #ffe9a8,
+        #ffc7e8
+    );
+
+    background-size:400% 400%;
+
+    animation:backgroundMove 12s infinite;
+
+}
+
+
+
+@keyframes backgroundMove{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+
+
+
+/* EMOJIS QUI FLOTTENT */
+
+#emoji-container{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:0;
+
+}
+
+
+
+.emoji{
+
+    position:absolute;
+
+    animation:emojiFall linear forwards;
+
+}
+
+
+
+@keyframes emojiFall{
+
+    from{
+
+        transform:
+        translateY(-10vh)
+        rotate(0deg);
+
+        opacity:1;
+
+    }
+
+
+    to{
+
+        transform:
+        translateY(110vh)
+        rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+
+
+
+
+/* FLASH REVELATION */
+
+
+#flash{
+
+    position:fixed;
+
+    inset:0;
+
+    background:white;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:20;
+
+}
+
+
+
+
+.flash-active{
+
+    animation:flash .6s;
+
+}
+
+
+
+
+@keyframes flash{
+
+    0%{
+
+        opacity:1;
+
+    }
+
+
+    100%{
+
+        opacity:0;
+
+    }
+
+}
+
+
+
+
+
+
+
+.page{
+
+    width:min(950px,94%);
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+
+
+section{
+
+    text-align:center;
+
+    background:
+
+    rgba(255,255,255,.75);
+
+
+    backdrop-filter:blur(20px);
+
+    border-radius:45px;
+
+    padding:50px;
+
+
+    box-shadow:
+
+    0 30px 80px rgba(255,50,150,.25);
+
+
+}
+
+
+
+
+.emoji-cloud{
+
+    font-size:45px;
+
+    animation:bounce 2s infinite;
+
+}
+
+
+
+
+@keyframes bounce{
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+}
+
+
+
+
+h1{
+
+    font-size:50px;
+
+    color:#ff3d91;
+
+    margin:25px 0;
+
+
+}
+
+
+
+
+p{
+
+    color:#555;
+
+    font-size:23px;
+
+    line-height:1.5;
+
+}
+
+
+
+
+button{
+
+    margin-top:40px;
+
+    padding:22px 45px;
+
+    border:none;
+
+    border-radius:999px;
+
+
+    background:
+
+    linear-gradient(
+    45deg,
+    #ff3b9d,
+    #ff83c4
+    );
+
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+
+    box-shadow:
+
+    0 15px 40px rgba(255,50,150,.4);
+
+
+    transition:.3s;
+
+}
+
+
+
+
+button:hover{
+
+    transform:scale(1.12)
+    rotate(-2deg);
+
+}
+
+
+
+
+.hidden{
+
+    display:none;
+
+}
+
+
+
+
+
+
+/* REVELATION */
+
+
+.party{
+
+    font-size:45px;
+
+}
+
+
+
+.breaking{
+
+    margin-top:15px;
+
+    font-size:32px;
+
+    color:#ff277e;
+
+}
+
+
+
+
+.big-title{
+
+    font-size:120px;
+
+    font-weight:900;
+
+    letter-spacing:15px;
+
+
+    color:#792cff;
+
+
+    text-shadow:
+
+    0 0 10px white,
+    0 0 35px #c58aff,
+    0 0 70px #792cff;
+
+
+    animation:
+
+    titlePop 1s;
+
+}
+
+
+
+@keyframes titlePop{
+
+    from{
+
+        transform:scale(.2);
+
+        opacity:0;
+
+    }
+
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+
+
+.announcement{
+
+    font-size:35px;
+
+    color:#ff3b91;
+
+}
+
+
+
+
+.message{
+
+    margin:25px;
+
+}
+
+
+
+
+
+/* BILLET */
+
+.ticket{
+
+    margin:40px auto;
+
+    width:min(700px,100%);
+
+
+    border-radius:25px;
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #5722ff,
+    #9c4dff,
+    #ff6db6
+    );
+
+
+    color:white;
+
+
+    overflow:hidden;
+
+
+    box-shadow:
+
+    0 30px 80px rgba(0,0,0,.35);
+
+
+    transform:
+
+    perspective(1000px)
+    rotateX(4deg);
+
+
+    transition:.5s;
+
+
+    position:relative;
+
+
+}
+
+
+
+.ticket:hover{
+
+
+    transform:
+
+    perspective(1000px)
+    rotateX(0deg)
+    rotateY(8deg)
+    scale(1.03);
+
+
+}
+
+
+
+
+.ticket:before{
+
+
+    content:"";
+
+
+    position:absolute;
+
+    width:150px;
+
+    height:600px;
+
+
+    background:
+
+    rgba(255,255,255,.25);
+
+
+    transform:
+
+    rotate(30deg);
+
+
+    left:-250px;
+
+
+    animation:
+
+    shine 4s infinite;
+
+
+}
+
+
+
+
+
+@keyframes shine{
+
+
+    100%{
+
+        left:900px;
+
+    }
+
+}
+
+
+
+
+.ticket-header{
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+
+    padding:20px;
+
+
+    background:
+
+    rgba(0,0,0,.25);
+
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+
+}
+
+
+
+
+.ticket-content{
+
+    padding:35px;
+
+}
+
+
+
+
+.mini{
+
+    letter-spacing:5px;
+
+    opacity:.8;
+
+}
+
+
+
+
+.ticket-content h2{
+
+    font-size:70px;
+
+    margin:15px;
+
+}
+
+
+
+
+
+.live{
+
+    letter-spacing:10px;
+
+}
+
+
+
+
+.ticket-info{
+
+    margin-top:35px;
+
+    font-size:22px;
+
+    line-height:2;
+
+
+}
+
+
+
+
+.ticket-info span{
+
+    font-weight:900;
+
+}
+
+
+
+
+.separator{
+
+
+    border-top:
+
+    2px dashed rgba(255,255,255,.6);
+
+    margin:30px 0;
+
+
+}
+
+
+
+
+
+.guest{
+
+    font-size:22px;
+
+}
+
+
+
+.guest strong{
+
+    font-size:35px;
+
+}
+
+
+
+
+
+.bottom-zone{
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:35px;
+
+
+}
+
+
+
+
+.barcode{
+
+
+    font-family:monospace;
+
+    font-size:35px;
+
+    letter-spacing:-2px;
+
+}
+
+
+
+
+
+.qr{
+
+    background:white;
+
+    width:80px;
+
+    height:80px;
+
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+
+    gap:5px;
+
+
+    padding:8px;
+
+}
+
+
+
+
+.qr div{
+
+
+    background:black;
+
+
+}
+
+
+
+
+
+.seat{
+
+
+    margin-top:20px;
+
+    font-weight:bold;
+
+}
+
+
+
+
+
+.ticket-footer{
+
+
+    background:
+
+    rgba(0,0,0,.25);
+
+
+    padding:20px;
+
+    letter-spacing:4px;
+
+}
+
+
+
+
+
+.final-love{
+
+
+    font-size:25px;
+
+    margin-top:20px;
+
+}
+
+
+
+
+@media(max-width:700px){
+
+
+    .big-title{
+
+        font-size:65px;
+
+        letter-spacing:5px;
+
+    }
+
+
+    .ticket-content h2{
+
+        font-size:45px;
+
+    }
+
+
+    h1{
+
+        font-size:35px;
+
+    }
+
+
+}
